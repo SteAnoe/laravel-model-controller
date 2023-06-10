@@ -17,15 +17,22 @@
 
 <body>
     <div class="container">
-        @foreach($movies as $movie)
+        
+        @foreach($movies as $key=>$movie)
+            @if(isset($films[$key]['url']))
             <div class="card">
+                
+                <img class="card-img-top" src="{{$films[$key]['url']}}" alt="">
+                
                 <h2 class="text-white">{{$movie['title']}}</h2>
-                <h5>{{$movie['original_title']}}</h5>
-                <h5>Lang: <span class="text-white">{{$movie['nationality']}}</span></h5>
-                <h5>Release: <span class="text-white">{{$movie['date']}}</span></h5>
-                <h5>Vote: <span class="text-white">{{$movie['vote']}}</span></h5>
-            </div>    
+                <h6>{{$movie['original_title']}}</h6>
+                <h6>Lang: <span class="text-white">{{$movie['nationality']}}</span></h6>
+                <h6>Release: <span class="text-white">{{$movie['date']}}</span></h6>
+                <h6>Vote: <span class="text-white">{{$movie['vote']}}</span></h6>
+            </div>  
+            @endif  
         @endforeach 
+        
     </div> 
 </body>
 

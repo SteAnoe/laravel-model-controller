@@ -10,6 +10,7 @@ class PageController extends Controller
 {
     public function getPage(){
         $movies = Movie::All();
-        return view('welcome', compact('movies'));
+        $films = config('arrayImgFilm.imgFilm');
+        return view('welcome', compact('movies','films'));
     }
 }
